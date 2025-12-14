@@ -1,0 +1,60 @@
+# CodeRabbit Configuration
+# Minimal configuration for frontend-heavy Next.js repository
+
+language:
+  typescript:
+    enabled: true
+  javascript:
+    enabled: true
+  jsx:
+    enabled: true
+  tsx:
+    enabled: true
+
+reviews:
+  # Enable automatic reviews on PRs targeting main branch
+  request_changes_workflow: true
+  high_level_summary: true
+  review_status: true
+  path_filters:
+    - "**/*.ts"
+    - "**/*.tsx"
+    - "**/*.js"
+    - "**/*.jsx"
+    - "**/*.css"
+    - "**/*.json"
+    - "**/*.md"
+    - "**/*.yaml"
+    - "**/*.yml"
+    # Exclude asset-only changes to avoid noisy reviews
+    - "!**/*.ico"
+    - "!**/*.png"
+    - "!**/*.jpg"
+    - "!**/*.jpeg"
+    - "!**/*.gif"
+    - "!**/*.svg"
+    - "!**/*.webp"
+    - "!**/favicon.ico"
+    - "!**/public/**/*.svg"
+    - "!**/public/**/*.png"
+    - "!**/public/**/*.jpg"
+
+# Keep review status check enabled
+status_check:
+  enabled: true
+
+# Ignore patterns for asset-only changes
+ignore:
+  paths:
+    - "**/*.ico"
+    - "**/*.png"
+    - "**/*.jpg"
+    - "**/*.jpeg"
+    - "**/*.gif"
+    - "**/*.svg"
+    - "**/*.webp"
+    - "**/favicon.ico"
+    - "**/public/**/*.svg"
+    - "**/public/**/*.png"
+    - "**/public/**/*.jpg"
+
