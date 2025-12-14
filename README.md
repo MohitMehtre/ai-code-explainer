@@ -1,8 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Code Explainer
 
-## Getting Started
+A modern, minimalistic web application that helps developers understand code through AI-powered explanations. Built with Next.js and Tailwind CSS, this tool provides clear, beginner-friendly explanations of code snippets with simple explanations, detailed breakdowns, and real-world analogies.
 
-First, run the development server:
+## Features
+
+- 🤖 **AI-Powered Explanations** - Get intelligent code explanations powered by OpenAI GPT-4o-mini
+- 🎨 **Minimalistic Design** - Clean, modern UI with a white background and classy color palette
+- 📝 **Multiple Language Support** - Supports JavaScript, Python, Java, and other languages
+- 📖 **Three-Tier Explanations**:
+  - **Simple Explanation** - Quick overview for beginners
+  - **What This Code Does** - Detailed step-by-step breakdown
+  - **Real-World Analogy** - Relatable analogies to help understand concepts
+- 🚀 **Fast & Responsive** - Optimized for performance with a fixed-height, non-scrollable layout
+- 💻 **Code Editor** - Large, scrollable textarea for pasting code of any length
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS v4
+- **Language**: TypeScript
+- **AI Integration**: OpenAI API
+- **Fonts**: Geist Sans & Geist Mono
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+- Node.js 18+ installed
+- npm, yarn, pnpm, or bun package manager
+- An OpenAI API key ([Get one here](https://platform.openai.com/api-keys))
+
+## Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/MohitMehtre/ai-code-explainer.git
+cd ai-code-explainer
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```bash
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+Replace `your_openai_api_key_here` with your actual OpenAI API key.
+
+### 4. Run the Development Server
 
 ```bash
 npm run dev
@@ -10,27 +67,94 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 5. Open Your Browser
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
 
-## Learn More
+1. **Select Language**: Choose the programming language of your code from the dropdown (JavaScript, Python, Java, or Other)
 
-To learn more about Next.js, take a look at the following resources:
+2. **Paste Code**: Paste your code snippet into the large textarea. The textarea is scrollable, so you can paste code of any length.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Explain Code**: Click the "Explain Code" button to generate an AI-powered explanation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **View Results**: The explanation will appear in the right panel with three sections:
+   - **Simple Explanation**: A brief overview of what the code is
+   - **What This Code Does**: A detailed step-by-step explanation
+   - **Real-World Analogy**: A relatable analogy to help understand the concept
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+ai-code-explainer/
+├── app/
+│   ├── api/
+│   │   └── explain/
+│   │       └── route.ts          # API endpoint for code explanation
+│   ├── globals.css                # Global styles with Tailwind
+│   ├── layout.tsx                 # Root layout component
+│   └── page.tsx                   # Main page component
+├── public/                        # Static assets
+├── .env.local                     # Environment variables (not in git)
+├── package.json                   # Dependencies and scripts
+└── README.md                      # This file
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## API Endpoint
+
+The application uses a Next.js API route at `/api/explain` that:
+
+- Accepts POST requests with `code` and `language` parameters
+- Uses OpenAI GPT-4o-mini to generate explanations
+- Returns structured JSON with three explanation types
+
+### Request Format
+
+```json
+{
+  "code": "your code here",
+  "language": "JavaScript"
+}
+```
+
+### Response Format
+
+```json
+{
+  "simpleExplanation": "Brief explanation...",
+  "whatItDoes": "Detailed explanation...",
+  "realWorldAnalogy": "Analogy explanation..."
+}
+```
+
+## Building for Production
+
+```bash
+npm run build
+npm start
+```
+
+## Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `OPENAI_API_KEY` | Your OpenAI API key | Yes |
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Support
+
+If you encounter any issues or have questions, please open an issue on the [GitHub repository](https://github.com/MohitMehtre/ai-code-explainer).
+
+---
+
+Built with ❤️ using Next.js and OpenAI
