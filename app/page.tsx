@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-type Language = 'JavaScript' | 'Python' | 'Java' | 'Other';
+type Language = 'JavaScript' | 'Python' | 'Java' | 'C++' | 'C' | 'Rust' | 'Go' | 'Other';
 
 interface ExplanationResult {
   simpleExplanation: string;
@@ -53,7 +53,7 @@ export default function Home() {
     <div className="h-screen bg-white overflow-hidden flex flex-col">
       <div className="container mx-auto px-6 py-8 max-w-7xl flex-1 flex flex-col overflow-hidden">
         {/* Header */}
-        <div className="mb-6 text-center flex-shrink-0">
+        <div className="mb-6 text-center shrink-0">
           <h1 className="text-5xl font-light text-slate-900 mb-3 tracking-tight">
             Code Explainer
           </h1>
@@ -65,7 +65,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 flex-1 min-h-0 overflow-hidden">
           {/* Input Section */}
           <div className="space-y-6 flex flex-col min-h-0">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <label htmlFor="language" className="block text-xs font-medium text-slate-600 mb-2 uppercase tracking-wider">
                 Language
               </label>
@@ -78,12 +78,16 @@ export default function Home() {
                 <option value="JavaScript">JavaScript</option>
                 <option value="Python">Python</option>
                 <option value="Java">Java</option>
+                <option value="C++">C++</option>
+                <option value="C">C</option>
+                <option value="Rust">Rust</option>
+                <option value="Go">Go</option>
                 <option value="Other">Other</option>
               </select>
             </div>
 
             <div className="flex-1 flex flex-col min-h-0">
-              <label htmlFor="code" className="block text-xs font-medium text-slate-600 mb-2 uppercase tracking-wider flex-shrink-0">
+              <label htmlFor="code" className="block text-xs font-medium text-slate-600 mb-2 uppercase tracking-wider shrink-0">
                 Code
               </label>
               <textarea
@@ -95,7 +99,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="flex-shrink-0 space-y-4">
+            <div className="shrink-0 space-y-4">
               <button
                 onClick={handleExplain}
                 disabled={loading}
@@ -124,7 +128,7 @@ export default function Home() {
 
           {/* Output Section */}
           <div className="flex flex-col min-h-0 overflow-hidden">
-            <h2 className="text-xs font-medium text-slate-600 mb-6 uppercase tracking-wider flex-shrink-0">
+            <h2 className="text-xs font-medium text-slate-600 mb-6 uppercase tracking-wider shrink-0">
               Explanation
             </h2>
 
